@@ -1,0 +1,11 @@
+variable "subnet_private_1a" {}
+variable "subnet_private_1b" {}
+variable "subnet_private_1c" {}
+variable "vpc-id" {}
+variable "vpc-cidr" {}
+variable allocated_storage {}
+variable engine_version {}  
+variable instance_class {}
+variable engine {}          
+variable username {}    
+variable password {}       
