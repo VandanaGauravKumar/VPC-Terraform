@@ -45,7 +45,7 @@ module "ec2" {
   vpc-id            = module.vpc.vpc-id
   public_key_name = module.key-pair.public_key_name
 }
-/*module "S3-Bucket" {
+module "S3-Bucket" {
   source = "./modules/S3-Bucket"
   env    = var.env
 }
@@ -64,9 +64,8 @@ module "RDS" {
   vpc-id            = module.vpc.vpc-id
   vpc-cidr          = module.vpc.vpc-cidr
 }
-*/
 
-/*module "eks" {
+module "eks" {
   source            = "./modules/EKS"
   vpc-id            = module.vpc.vpc-id
   #SSH-Sg-id = module.ec2.SSH-Sg-id
@@ -85,4 +84,4 @@ module "RDS" {
   min_size          = var.min_size
   eksrole           = var.eksrole
   nodegrouprole     = var.nodegrouprole
-} */
+} 

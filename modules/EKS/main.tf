@@ -116,11 +116,14 @@ resource "aws_iam_role" "workernodes" {
   ami_type = "AL2_x86_64"
   capacity_type = "ON_DEMAND"
   disk_size = 20
+   
   
   remote_access {
     ec2_ssh_key = var.worker_key_name
     #ec2_ssh_key = "my-key-pair"
-    source_security_group_ids = [aws_security_group.worker_node_sg.id]
+    #if we provided the ec2_ssh_key,then we need to provide the security group id ow it will by 
+    #default create a remote access security group that will by default enable ssh access to the worker nodes(0.0.0.0/0)
+    #source_security_group_ids = [aws_security_group.worker_node_sg.id]
       }
  
   scaling_config {

@@ -98,17 +98,17 @@ resource "aws_internet_gateway" "igw" {
 
 # Elastic IP for NGW
 
-/*resource "aws_eip" "ngw-ip" {
+resource "aws_eip" "ngw-ip" {
   domain = "vpc"
   
   tags = {
     Name = "${var.env}.ngw.ip"
   }
 }
-*/
+
 # NAT Gateway
 
-/*resource "aws_nat_gateway" "ngw" {
+resource "aws_nat_gateway" "ngw" {
   allocation_id = aws_eip.ngw-ip.id
   subnet_id     = aws_subnet.subnet_public_1a.id
 
@@ -119,7 +119,7 @@ resource "aws_internet_gateway" "igw" {
   # To ensure proper ordering, it is recommended to add an explicit dependency
   # on the Internet Gateway for the VPC.
   depends_on = [aws_internet_gateway.igw]
-} */
+} 
 
 # Route Tables
 
@@ -179,9 +179,9 @@ resource "aws_route_table" "rt-private-1a" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-    cidr_block = "10.0.0.0/16"
-    gateway_id = "local"
-    #nat_gateway_id = aws_nat_gateway.ngw.id
+    cidr_block = "0.0.0.0/0"
+    #gateway_id = "local"
+    nat_gateway_id = aws_nat_gateway.ngw.id
     #instance_id = aws_instance.Bastion_instance.id
   }
 
@@ -194,9 +194,9 @@ resource "aws_route_table" "rt-private-1b" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-    cidr_block = "10.0.0.0/16"
-    gateway_id = "local"
-    #nat_gateway_id = aws_nat_gateway.ngw.id
+    cidr_block = "0.0.0.0/0"
+    #gateway_id = "local"
+    nat_gateway_id = aws_nat_gateway.ngw.id
   }
 
   tags = {
@@ -208,9 +208,9 @@ resource "aws_route_table" "rt-private-1c" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-    cidr_block = "10.0.0.0/16"
-    gateway_id = "local"
-    #nat_gateway_id = aws_nat_gateway.ngw.id
+    cidr_block = "0.0.0.0/0"
+    #gateway_id = "local"
+    nat_gateway_id = aws_nat_gateway.ngw.id
     #instance_id = aws_instance.Bastion_instance.id
   }
 
