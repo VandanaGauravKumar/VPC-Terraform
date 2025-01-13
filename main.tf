@@ -45,11 +45,13 @@ module "ec2" {
   vpc-id            = module.vpc.vpc-id
   public_key_name = module.key-pair.public_key_name
 }
+/*
 module "S3-Bucket" {
   source = "./modules/S3-Bucket"
   env    = var.env
 }
 
+/*
 module "RDS" {
   source            = "./modules/RDS"
   allocated_storage = var.allocated_storage
@@ -63,7 +65,7 @@ module "RDS" {
   subnet_private_1c = module.vpc.subnet_private_1c
   vpc-id            = module.vpc.vpc-id
   vpc-cidr          = module.vpc.vpc-cidr
-}
+} */
 
 module "eks" {
   source            = "./modules/EKS"
@@ -84,4 +86,5 @@ module "eks" {
   min_size          = var.min_size
   eksrole           = var.eksrole
   nodegrouprole     = var.nodegrouprole
-} 
+}
+

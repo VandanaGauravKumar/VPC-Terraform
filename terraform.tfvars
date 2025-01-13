@@ -25,7 +25,7 @@ password          = "password123#"
 
 
 # EKS 
-nodesize      = "t3.micro"
+nodesize      = "t2.medium"
 eksrole       = "eks-iam-role"
 nodegrouprole = "eks-node-group-role"
 desired_size  = "2"
