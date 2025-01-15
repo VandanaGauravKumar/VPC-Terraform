@@ -21,7 +21,8 @@ resource "helm_release" "argocd" {
   namespace        = "argocd"
   create_namespace = true
   version          = "3.35.4"
-  values           = [file("values/argocd.yaml")]
+  #values           = [file("values/argocd.yaml")]
+  values           = [file("${path.module}/values/argocd.yaml")]
 }
 # helm install argocd -n argocd -f values/argocd.yaml
 

@@ -87,4 +87,6 @@ module "eks" {
   eksrole           = var.eksrole
   nodegrouprole     = var.nodegrouprole
 }
-
+module "ArgoCD" {
+  source = "./modules/ArgoCD"
+  }
